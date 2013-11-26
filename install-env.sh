@@ -10,19 +10,34 @@ cd $HOME
 #
 # 把檔案複製到$HOME
 #
-rm $HOME/.tmux.conf
+if [ -e $HOME/.tmux.conf ]; then
+    mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
+fi
+
 ln -s $GITDIR/tmux.conf $HOME/.tmux.conf
 #
-rm -r $HOME/.vim
+if [ -e $HOME/.vim ]; then
+    mv $HOME/.vim $HOME/.vim.bak
+fi
+
 ln -s $GITDIR/vim $HOME/.vim
 #
-rm $HOME/.vimrc
+if [ -e $HOME/.vimrc ]; then
+    mv $HOME/.vimrc $HOME/.vimrc.bak
+fi
+
 ln -s $GITDIR/vimrc $HOME/.vimrc
 #
-rm $HOME/.zshrc
+if [ -e $HOME/.zshrc ]; then
+    mv $HOME/.zshrc $HOME/.zshrc.bak
+fi
+
 ln -s $GITDIR/zshrc $HOME/.zshrc
 #
-rm $HOME/.gitconfig
+if [ -e $HOME/.gitconfig ]; then
+    mv $HOME/.gitconfig $HOME/.gitconfig.bak
+fi
+
 ln -s $GITDIR/gitconfig $HOME/.gitconfig
 #
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
