@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/.amd_mnt/account/admin/allenkuan/work/kkports/kk/kkdeployd/files'
+let g:netrw_dirhist_2='/.amd_mnt/account/admin/allenkuan/work/kkxymon/etc'
+let g:netrw_dirhist_3='/usr/local/etc/munin/munin-conf.d'
+let g:netrw_dirhist_4='/usr/local/etc/logrotate.d'
+let g:netrw_dirhist_5='/usr/local/etc/rc.d'
+let g:netrw_dirhist_6='/.amd_mnt/account/admin/allenkuan/work/kkcron/cron/1day'
