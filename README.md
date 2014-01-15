@@ -10,6 +10,7 @@ dot_files
 
 #### tmux + powerline
 ![Imgur](http://i.imgur.com/Tuh1Ant.png)
+注意到下方powerline會有部分亂碼，這是因為使用的字型需要patch過才會顯示特殊符號
 
 #### tmux + vim + powerline
 ![Imgur](http://i.imgur.com/1WClnpe.png)
