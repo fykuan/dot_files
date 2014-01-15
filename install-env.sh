@@ -41,3 +41,4 @@ fi
 ln -s $GITDIR/gitconfig $HOME/.gitconfig
 #
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
