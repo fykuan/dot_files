@@ -13,6 +13,9 @@ if [ -e $HOME/.tmux.conf ]; then
 fi
 
 ln -s $GITDIR/tmux.conf $HOME/.tmux.conf
+cat >> '$HOME/.tmux.conf' << EOF
+source '$GITDIR/modules/powerline/powerline/bindings/tmux/powerline.conf'
+EOF
 #
 if [ -e $HOME/.vim ]; then
     mv $HOME/.vim $HOME/.vim.bak
