@@ -13,9 +13,6 @@ if [ -e $HOME/.tmux.conf ]; then
 fi
 
 ln -s $GITDIR/tmux.conf $HOME/.tmux.conf
-cat >> "$HOME/.tmux.conf" << EOF
-source "${GITDIR}/modules/powerline/powerline/bindings/tmux/powerline.conf"
-EOF
 #
 if [ -e $HOME/.vim ]; then
     mv $HOME/.vim $HOME/.vim.bak
@@ -46,7 +43,7 @@ if [ -e $HOME/.oh-my-zsh ]; then
 fi
 ln -s $GITDIR/modules/oh-my-zsh $HOME/.oh-my-zsh
 
-if [-e $HOME/.tmux.conf.source ]; then
+if [ -e $HOME/.tmux.conf.source ]; then
     rm -f $HOME/.tmux.conf.source
 fi
 cat >> $HOME/.tmux.conf.source << EOF
