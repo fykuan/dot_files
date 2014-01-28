@@ -41,4 +41,14 @@ fi
 
 ln -s $GITDIR/gitconfig $HOME/.gitconfig
 #
+if [ -e $HOME/.oh-my-zsh ]; then
+    mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh.bak
+fi
 ln -s $GITDIR/modules/oh-my-zsh $HOME/.oh-my-zsh
+
+if [-e $HOME/.tmux.conf.source ]; then
+    rm -f $HOME/.tmux.conf.source
+fi
+cat >> $HOME/.tmux.conf.source << EOF
+source "$GITDIR/modules/powerline/powerline/bindings/tmux/powerline.conf"
+EOF
