@@ -43,11 +43,13 @@ if [ -e $HOME/.oh-my-zsh ]; then
 fi
 ln -s $GITDIR/modules/oh-my-zsh $HOME/.oh-my-zsh
 
-cd $HOME/.oh-my-zsh/plugins && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-
 if [ -e $HOME/.tmux.conf.source ]; then
     rm -f $HOME/.tmux.conf.source
 fi
 cat >> $HOME/.tmux.conf.source << EOF
 source "$GITDIR/modules/powerline/powerline/bindings/tmux/powerline.conf"
+EOF
+
+cat >> $HOME/.zshrc.source << EOF
+source "$GITDIR/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 EOF

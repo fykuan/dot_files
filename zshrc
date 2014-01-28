@@ -56,3 +56,5 @@ function precmd {
 }
 #   拿掉oh-my-zsh的AUTO_TITLE，否則上面設定的tab名稱會一直被蓋掉
 DISABLE_AUTO_TITLE=true
+
+source "$HOME/.zshrc.source"
