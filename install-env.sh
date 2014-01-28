@@ -1,10 +1,8 @@
 #!/bin/sh
 #
 GITDIR=`pwd`
-# 先把oh-my-zsh抓回來
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-#
-mkdir -p $HOME/.oh-my-zsh/custom/plugins && cd $HOME/.oh-my-zsh/custom/plugins && git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+# 先把submodule拉回來
+git submodule init && git submodule update --recursive
 #
 cd $HOME
 #
