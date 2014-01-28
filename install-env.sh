@@ -41,4 +41,5 @@ fi
 
 ln -s $GITDIR/gitconfig $HOME/.gitconfig
 #
+ln -s $GITDIR/modules/oh-my-zsh $HOME/.oh-my-zsh
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
