@@ -88,3 +88,4 @@ endif
 
 let mapleader = "\\"
 let g:mapleader = "\\"
+set rtp+=${HOME}/.vim/bundle/powerline/powerline/bindings/vim
