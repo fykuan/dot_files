@@ -6,12 +6,27 @@ dot_files
 ###螢幕截圖
 
 #### ZSH
-![Imgur](http://i.imgur.com/wO2rOUS.png)
+![Imgur](http://i.imgur.com/0heyRVl.png)
 
-#### tmux + powerline
-![Imgur](http://i.imgur.com/Tuh1Ant.png)
-注意到下方powerline會有部分亂碼，這是因為使用的字型需要patch過才會顯示特殊符號
+###安裝
+#### Prerequirement
+* vim (with Python support)
+* zsh
+* patch過的字型（沒patch過的沒有powerline使用的特殊符號）
 
-#### tmux + vim + powerline
-![Imgur](http://i.imgur.com/1WClnpe.png)
+#### 流程
+1. 把repository clone回去
 
+		git clone git@github.com:fykuan/dot_files.git
+		
+2. 執行install-env.sh，會把該拉回來的都拉回來
+
+3. 執行modules/powerline/setup.py
+
+		sudo modules/powerline/setup.py install
+		
+4. 重新登入
+
+5. 執行vim，在vim內執行
+
+		: BundleInstall
