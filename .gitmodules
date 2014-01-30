@@ -1,12 +1,13 @@
 [submodule "vim/bundle/vundle"]
-	path = vim/bundle/vundle
-	url = https://github.com/gmarik/vundle.git
+    path = vim/bundle/vundle
+    url = https://github.com/gmarik/vundle.git
 [submodule "modules/powerline"]
-	path = modules/powerline
-	url = https://github.com/Lokaltog/powerline.git
+    path = modules/powerline
+    url = https://github.com/Lokaltog/powerline.git
 [submodule "modules/oh-my-zsh"]
-	path = modules/oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
+    path = modules/oh-my-zsh
+    url = https://github.com/robbyrussell/oh-my-zsh.git
+    ignore = dirty
 [submodule "modules/zsh-syntax-highlighting"]
-	path = modules/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+    path = modules/zsh-syntax-highlighting
+    url = https://github.com/zsh-users/zsh-syntax-highlighting.git
