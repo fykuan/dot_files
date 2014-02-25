@@ -24,7 +24,7 @@ set t_Co=256
 set visualbell
 set wildmenu
 set tabstop=4
-set guifont=Source\ Code\ Pro\ ExtraLight
+set guifont=Sauce\ Code\ Powerline\ ExtraLight
 syntax on
 "
 " keybinding
