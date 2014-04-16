@@ -68,7 +68,7 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'godlygeek/tabular'
-Bundle 'Shougo/neocomplete.vim'
+"Bundle 'Shougo/neocomplete.vim'
 
 filetype on
 "
@@ -92,4 +92,4 @@ let mapleader = "\\"
 let g:mapleader = "\\"
 set rtp+=${HOME}/.vim/bundle/powerline/powerline/bindings/vim
 
-let g:neocomplete#enable_at_startup = 1
+"let g:neocomplete#enable_at_startup = 1
