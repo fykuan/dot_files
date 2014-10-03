@@ -48,7 +48,7 @@ if [ -e $HOME/.tmux.conf.source ]; then
 fi
 
 if [ -e $HOME/.zsh-autosuggestions ]; then
-    rm -f $HOME/.zsh-autosuggestions
+    rm -fr $HOME/.zsh-autosuggestions
 fi
 ln -s $GITDIR/modules/zsh-autosuggestions $HOME/.zsh-autosuggestions
 
