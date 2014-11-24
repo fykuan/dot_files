@@ -5,3 +5,5 @@
 [user]
 	name = Fan-Yu Kuan
 	email = fykuan@gmail.com
+[push]
+	default = matching

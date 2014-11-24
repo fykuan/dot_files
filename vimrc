@@ -69,7 +69,6 @@ Bundle 'Lokaltog/powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'godlygeek/tabular'
 "Bundle 'Shougo/neocomplete.vim'
-
 filetype on
 "
 " color schema
@@ -93,3 +92,4 @@ let g:mapleader = "\\"
 set rtp+=${HOME}/.vim/bundle/powerline/powerline/bindings/vim
 
 "let g:neocomplete#enable_at_startup = 1
+autocmd filetype crontab setlocal nobackup nowritebackup

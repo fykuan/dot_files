@@ -59,9 +59,11 @@ DISABLE_AUTO_TITLE=true
 
 source "$HOME/.zshrc.source"
 
-source ~/.zsh-autosuggestions/autosuggestions.zsh
-zle-line-init() {
-    zle autosuggest-start
-}
-zle -N zle-line-init
-bindkey '^T' autosuggest-toggle
+# Disable zsh-autosuggestions
+#
+#source ~/.zsh-autosuggestions/autosuggestions.zsh
+#zle-line-init() {
+#    zle autosuggest-start
+#}
+#zle -N zle-line-init
+#bindkey '^T' autosuggest-toggle
