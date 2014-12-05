@@ -93,3 +93,13 @@ set rtp+=${HOME}/.vim/bundle/powerline/powerline/bindings/vim
 
 "let g:neocomplete#enable_at_startup = 1
 autocmd filetype crontab setlocal nobackup nowritebackup
+" tab navigation like firefox
+nnoremap <C-S-tab>  :tabprevious<CR>
+nnoremap <C-tab>    :tabnext<CR>
+nnoremap <C-t>      :tabnew<CR>
+nnoremap <C-w>      :tabclose<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>
+nnoremap <S-h> gT
+nnoremap <S-l> gt
