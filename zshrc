@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="gallifrey"
-plugins=(cp git zsh-syntax-highlighting)
+ZSH_THEME="geoffgarside"
+plugins=(cp git zsh-syntax-highlighting docker)
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 cd "$HOME"
 
@@ -67,3 +67,6 @@ source "$HOME/.zshrc.source"
 #}
 #zle -N zle-line-init
 #bindkey '^T' autosuggest-toggle
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

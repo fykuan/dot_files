@@ -24,7 +24,7 @@ set t_Co=256
 set visualbell
 set wildmenu
 set tabstop=4
-set guifont=Sauce\ Code\ Powerline\ ExtraLight
+set guifont=Sauce\ Code\ Powerline\ ExtraLight:h13
 syntax on
 "
 " keybinding
@@ -68,6 +68,8 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'godlygeek/tabular'
+Bundle 'hdima/python-syntax'
+
 "Bundle 'Shougo/neocomplete.vim'
 filetype on
 "
