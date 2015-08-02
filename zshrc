@@ -1,5 +1,5 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="dpoggi"
+ZSH_THEME="dallas"
 plugins=(cp git zsh-syntax-highlighting docker)
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 cd "$HOME"
