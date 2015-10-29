@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/allenkuan/acer-git/gitolite-admin/conf'
-let g:netrw_dirhist_2='/Users/allenkuan/acer-git/gitolite-admin'
-let g:netrw_dirhist_3='/Users/allenkuan/acer-git'
-let g:netrw_dirhist_4='/Users/allenkuan'
-let g:netrw_dirhist_5='/Users'
