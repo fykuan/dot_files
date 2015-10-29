@@ -14,18 +14,6 @@ fi
 
 ln -s $GITDIR/tmux.conf $HOME/.tmux.conf
 #
-if [ -e $HOME/.vim ]; then
-    mv $HOME/.vim $HOME/.vim.bak
-fi
-
-ln -s $GITDIR/vim $HOME/.vim
-#
-if [ -e $HOME/.vimrc ]; then
-    mv $HOME/.vimrc $HOME/.vimrc.bak
-fi
-
-ln -s $GITDIR/vimrc $HOME/.vimrc
-#
 if [ -e $HOME/.zshrc ]; then
     mv $HOME/.zshrc $HOME/.zshrc.bak
 fi
@@ -65,3 +53,5 @@ EOF
 cat >> $HOME/.zshrc.source << EOF
 source "$GITDIR/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 EOF
+
+curl http://j.mp/spf13-vim3 -L -o - | sh
