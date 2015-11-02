@@ -8,22 +8,26 @@ cd $HOME
 #
 # 把檔案複製到$HOME
 #
+if [ -e $HOME/.vimrc.local ]; then
+    mv $HOME/.vimrc.local $HOME/.vimrc.local.bak
+fi
+ln -s $GITDIR/vimrc.local $HOME/.vimrc.local
+ln -s $GITDIR/vim-skel $HOME/.vim/skel
+
+#
 if [ -e $HOME/.tmux.conf ]; then
     mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
 fi
-
 ln -s $GITDIR/tmux.conf $HOME/.tmux.conf
 #
 if [ -e $HOME/.zshrc ]; then
     mv $HOME/.zshrc $HOME/.zshrc.bak
 fi
-
 ln -s $GITDIR/zshrc $HOME/.zshrc
 #
 if [ -e $HOME/.gitconfig ]; then
     mv $HOME/.gitconfig $HOME/.gitconfig.bak
 fi
-
 ln -s $GITDIR/gitconfig $HOME/.gitconfig
 #
 if [ -e $HOME/.oh-my-zsh ]; then
@@ -43,6 +47,7 @@ ln -s $GITDIR/modules/zsh-autosuggestions $HOME/.zsh-autosuggestions
 if [ -e $HOME/.tmux.conf.source ]; then
     rm -fr $HOME/.tmux.conf.source
 fi
+
 ln -s $GITDIR/tmux.conf.source $HOME/.tmux.conf.source
 ln -s $GITDIR/tmux.conf.source.osx $HOME/.tmux.conf.source.osx
 
