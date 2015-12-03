@@ -1,3 +1,4 @@
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/Template.%:e
 set wrap
+set tw=0
 
