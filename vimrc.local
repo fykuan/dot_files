@@ -1,4 +1,5 @@
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/Template.%:e
 set wrap
 set tw=0
-
+au BufEnter * inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "<TAB>"
+au BufEnter * inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "<TAB>"

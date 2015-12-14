@@ -51,11 +51,11 @@ fi
 ln -s $GITDIR/tmux.conf.source $HOME/.tmux.conf.source
 ln -s $GITDIR/tmux.conf.source.osx $HOME/.tmux.conf.source.osx
 
-cat >> $HOME/.tmux.conf.source << EOF
+cat > $HOME/.tmux.conf.source << EOF
 source "$GITDIR/modules/powerline/powerline/bindings/tmux/powerline.conf"
 EOF
 
-cat >> $HOME/.zshrc.source << EOF
+cat > $HOME/.zshrc.source << EOF
 source "$GITDIR/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 EOF
 
