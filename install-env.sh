@@ -60,3 +60,8 @@ source "$GITDIR/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 EOF
 
 curl http://j.mp/spf13-vim3 -L -o - | sh
+
+#
+# zsh-autosuggestions
+#
+git clone git://github.com/tarruda/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
