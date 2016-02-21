@@ -25,6 +25,11 @@ if [ -e $HOME/.zshrc ]; then
 fi
 ln -s $GITDIR/zshrc $HOME/.zshrc
 #
+if [ -e $HOME/.zshenv ]; then
+    mv $HOME/.zshenv $HOME/.zshenv.bak
+fi
+ln -s $GITDIR/zshenv $HOME/.zshenv
+#
 if [ -e $HOME/.gitconfig ]; then
     mv $HOME/.gitconfig $HOME/.gitconfig.bak
 fi
