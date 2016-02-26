@@ -26,6 +26,7 @@ alias vi="vim"
 alias tmux="tmux -2"
 alias ta="tmux attach"
 alias yh="ypcat hosts"
+alias qotd="curl -s http://wowquote.tw/quote/random\?json\=1 | jq '.celebrity.name + \"：\" + .quote[0]' | cowsay -f www -d -n"
 
 # 環境變數
 export EDITOR VISUAL HOME
@@ -40,6 +41,8 @@ export TERM=screen-256color
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
+TERM=screen-256color
+
 
 if [ -x /usr/local/bin/most -o -x /usr/bin/most -o -x /opt/local/bin/most ]; then
     export PAGER="most"
@@ -70,3 +73,12 @@ source "$HOME/.zshrc.source"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+#
+#
+#
+if which curl > /dev/null 2>&1  && which jq > /dev/null 2>&1 && which cowsay > /dev/null 2>&1; then
+    if ping -c 1 -q -t 1 8.8.8.8 > /dev/null 2>&1; then
+        curl -s http://wowquote.tw/quote/random\?json\=1 | jq '.celebrity.name + "：" + .quote[0]' | cowsay -f www -d -n
+    fi
+fi
