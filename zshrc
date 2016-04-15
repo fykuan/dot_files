@@ -77,6 +77,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 #
 #
 #
+curl http://wttr.in/taipei
+#
 if which curl > /dev/null 2>&1  && which jq > /dev/null 2>&1 && which cowsay > /dev/null 2>&1; then
     if ping -c 1 -q -t 1 8.8.8.8 > /dev/null 2>&1; then
         curl -s http://wowquote.tw/quote/random\?json\=1 | jq '.celebrity.name + "：" + .quote[0]' | cowsay -f www -d -n
