@@ -12,6 +12,7 @@ if [ -e $HOME/.vimrc.local ]; then
     mv $HOME/.vimrc.local $HOME/.vimrc.local.bak
 fi
 ln -s $GITDIR/vimrc.local $HOME/.vimrc.local
+mkdir -r $HOME/.vim
 ln -s $GITDIR/vim-skel $HOME/.vim/skel
 
 #
