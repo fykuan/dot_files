@@ -27,6 +27,8 @@ alias tmux="tmux -2"
 alias ta="tmux attach"
 alias yh="ypcat hosts"
 alias qotd="curl -s http://wowquote.tw/quote/random\?json\=1 | jq '.celebrity.name + \"：\" + .quote[0]' | cowsay -f www -d -n"
+alias lock="i3lock -i ~/arch-wallpapers/wallhaven-333506.png"
+alias rainbowstream="~/venv/bin/python ~/venv/bin/rainbowstream"
 
 # 環境變數
 export EDITOR VISUAL HOME
@@ -41,6 +43,10 @@ export TERM=screen-256color
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
+export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+
 TERM=screen-256color
 
 
