@@ -1,8 +1,15 @@
+!Set background color to black
 urxvt*background: black
 urxvt*foreground: white
 urxvt*inheritPixmap: true
+!Disable scrollbar
 urxvt*scrollBar: false
 urxvt*tintColor: gray2
-urxvt*boldFont: xft:Source Code Pro Medium:size=8
+!Underline cursor
 urxvt*cursorUnderline: 1
+!No bold font
 urxvt*font: xft:Source Code Pro Medium:size=8
+urxvt*boldFont: xft:Source Code Pro Medium:size=8
+!Make ibus work in urxvt on i3wm
+urxvt*inputMethod: ibus
+urxvt.preeditType: OverTheSpot
