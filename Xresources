@@ -1,0 +1,8 @@
+urxvt*background: black
+urxvt*foreground: white
+urxvt*inheritPixmap: true
+urxvt*scrollBar: false
+urxvt*tintColor: gray2
+urxvt*boldFont: xft:Source Code Pro Medium:size=8
+urxvt*cursorUnderline: 1
+urxvt*font: xft:Source Code Pro Medium:size=8
