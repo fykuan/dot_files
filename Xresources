@@ -3,7 +3,7 @@ xterm*locale: true
 xterm*metaSendsEscape: true
 xterm*reverseVideo: on
 xterm*faceName: Source Code Pro Medium
-xterm*faceNameDoublesize:WenQuanYi Micro Hei:antialias=true:pixelsize=12
+xterm*faceNameDoublesize:WenQuanYi Micro Hei:antialias=true:pixelsize=13
 xterm*faceSize: 9
 xterm*inputMethod: ibus
 

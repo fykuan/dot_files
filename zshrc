@@ -29,6 +29,7 @@ alias yh="ypcat hosts"
 alias qotd="curl -s http://wowquote.tw/quote/random\?json\=1 | jq '.celebrity.name + \"：\" + .quote[0]' | cowsay -f www -d -n"
 alias lock="i3lock -i ~/arch-wallpapers/wallhaven-333506.png"
 alias rainbowstream="~/venv/bin/python ~/venv/bin/rainbowstream"
+alias bb="byobu"
 
 # 環境變數
 export EDITOR VISUAL HOME
