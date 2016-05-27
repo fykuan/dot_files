@@ -13,5 +13,9 @@ urxvt*background: Black
 urxvt*foreground: White
 urxvt*scrollBar: false
 urxvt*cursorUnderline: true
+urxvt*transparent: true
+urxvt*shading: 20
 !urxvt*letterSpace: -1
 
+xft*antialias: 1
+xft*lcdfilter: lcddefault
