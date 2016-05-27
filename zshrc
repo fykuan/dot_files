@@ -91,3 +91,16 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 #        curl -s http://wowquote.tw/quote/random\?json\=1 | jq '.celebrity.name + "：" + .quote[0]' | cowsay -f www -d -n
 #    fi
 #fi
+
+# urxvt
+bindkey -s "\e[11~" ""
+bindkey -s "\e[12~" ""
+bindkey -s "\e[13~" ""
+bindkey -s "\e[14~" ""
+bindkey -s "\e[15~" ""
+bindkey -s "\e[17~" ""
+bindkey -s "\e[18~" ""
+bindkey -s "\e[19~" ""
+bindkey -s "\e[20~" ""
+bindkey -s "\e[21~" ""
+bindkey -s "\e[23~" ""

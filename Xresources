@@ -7,3 +7,11 @@ xterm*faceNameDoublesize:WenQuanYi Micro Hei:antialias=true:pixelsize=13
 xterm*faceSize: 9
 xterm*inputMethod: ibus
 
+urxvt*font: xft:Source Code Pro Medium:size=8,xft:WenQuanYi Micro Hei Mono: pixelsize=16:minspace=true
+urxvt*boldFont: xft:Source Code Pro Medium:size=8,xft:WenQuanYi Micro Hei Mono: pixelsize=16:minspace=true
+urxvt*background: Black
+urxvt*foreground: White
+urxvt*scrollBar: false
+urxvt*cursorUnderline: true
+!urxvt*letterSpace: -1
+
