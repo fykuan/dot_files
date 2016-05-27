@@ -40,7 +40,7 @@ export LESS="-EfmrSwX"
 export LSCOLORS="gxfxcxdxbxegedabagacad"
 export PATH="/usr/local/sbin:/usr/sbin:/sbin:/sbin:/bin:/usr/sbin:/usr/local/bin:/usr/bin:/usr/games:/usr/local/sbin:/home/allenkuan/bin:$PATH"
 export PERL_CPANM_OPT="--mirror http://cpan.nctu.edu.tw/ --mirror http://cpan.cpantesters.org/"
-export TERM=screen-256color
+#export TERM=screen-256color
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
@@ -48,7 +48,7 @@ export XMODIFIERS=@im=ibus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 
-TERM=screen-256color
+#TERM=screen-256color
 
 
 if [ -x /usr/local/bin/most -o -x /usr/bin/most -o -x /opt/local/bin/most ]; then
