@@ -12,7 +12,7 @@ if [ -e $HOME/.vimrc.local ]; then
     mv $HOME/.vimrc.local $HOME/.vimrc.local.bak
 fi
 ln -s $GITDIR/vimrc.local $HOME/.vimrc.local
-mkdir -r $HOME/.vim
+mkdir -p $HOME/.vim
 ln -s $GITDIR/vim-skel $HOME/.vim/skel
 
 #
@@ -65,6 +65,7 @@ cat > $HOME/.zshrc.source << EOF
 source "$GITDIR/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 EOF
 
+#install spf13-vim
 curl http://j.mp/spf13-vim3 -L -o - | sh
 
 #
