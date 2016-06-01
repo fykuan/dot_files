@@ -17,7 +17,14 @@ urxvt*cursorUnderline: true
 urxvt*transparent: true
 urxvt*shading: 20
 urxvt*letterSpace: -1
-!urxvt*termName: xterm-256color
+!urxvt*termName: screen-256color
+urxvt.perl-ext-common: default,matcher
+urxvt.url-launcher: /usr/bin/xdg-open
+urxvt.matcher.button: 1
+urxvt.keysym.C-Delete: perl:matcher:last
+urxvt.keysym.M-Delete: perl:matcher:list
+urxvt.matcher.rend.0: Uline Bold fg5
+urxvt.colorUL: #4682b4
 
 !!*fading: 40
 *fadeColor: #002b36
