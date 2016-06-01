@@ -12,8 +12,6 @@ if [ -e $HOME/.vimrc.local ]; then
     mv $HOME/.vimrc.local $HOME/.vimrc.local.bak
 fi
 ln -s $GITDIR/vimrc.local $HOME/.vimrc.local
-mkdir -p $HOME/.vim
-ln -s $GITDIR/vim-skel $HOME/.vim/skel
 
 #
 if [ -e $HOME/.tmux.conf ]; then
@@ -72,3 +70,6 @@ curl http://j.mp/spf13-vim3 -L -o - | sh
 # zsh-autosuggestions
 #
 git clone git://github.com/tarruda/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+#
+mkdir -p $HOME/.vim
+ln -s $GITDIR/vim-skel $HOME/.vim/skel
