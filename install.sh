@@ -61,7 +61,7 @@ fi
 if [ -d ~/.dotfiles ]; then
     rm -fr ~/.dotfiles
 fi
-git clone git@github.com:fykuan/dotfiles ~/.dotfiles
+git clone https://github.com/fykuan/dotfiles ~/.dotfiles
 # use rcm to install dot files
 rcup -v
 
