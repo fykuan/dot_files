@@ -1,3 +1,4 @@
+
 dot_files
 =========
 
@@ -13,20 +14,11 @@ dot_files
 * vim (with Python support)
 * zsh
 * patch過的字型（沒patch過的沒有powerline使用的特殊符號）
+* sudo、python-pip、git
 
 #### 流程
 1. 把repository clone回去
 
-		git clone git@github.com:fykuan/dot_files.git
-		
-2. 執行install-env.sh，會把該拉回來的都拉回來
+   	git clone git@github.com:fykuan/dot_files.git
 
-3. 執行modules/powerline/setup.py
-
-		sudo modules/powerline/setup.py install
-		
-4. 重新登入
-
-5. 執行vim，在vim內執行
-
-		: BundleInstall
+2. 執行install.sh，會把該拉回來的都拉回來
