@@ -58,24 +58,19 @@ elif which pkg; then
 fi
 
 # clone .dotfiles from github
-if [ -d ~/.dotfiles ]; then
-    rm -fr ~/.dotfiles
-fi
+rm -fr ~/.dotfiles
+
 git clone https://github.com/fykuan/dotfiles ~/.dotfiles
 # use rcm to install dot files
 rcup -v
 
 # General
 # oh-my-zsh
-if [ -e $HOME/.oh-my-zsh ]; then
-    mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh.bak
-fi
+if [ -e $HOME/.oh-my-zsh ] && mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh.bak
 ln -s $GITDIR/modules/oh-my-zsh $HOME/.oh-my-zsh
 
 # zsh-autosuggestion
-if [ -e $HOME/.zsh-autosuggestions ]; then
-    rm -fr $HOME/.zsh-autosuggestions
-fi
+rm -fr $HOME/.zsh-autosuggestions
 ln -s $GITDIR/modules/zsh-autosuggestions $HOME/.zsh-autosuggestions
 
 # install powerline
@@ -84,15 +79,12 @@ cd $GITDIR/modules/powerline && git checkout master && sudo python setup.py inst
 #install spf13-vim
 curl http://j.mp/spf13-vim3 -L -o - | sh
 
-# zsh-autosuggestionsi
-if [ -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
-    rm -fr $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-fi
+# zsh-autosuggestions
+rm -fr $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone git://github.com/tarruda/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-cat > $HOME/.tmux.conf.source << EOF
-
 # 把 powerline 和 zsh-syntax-highlighting 載入 zshrc
+cat > $HOME/.tmux.conf.source << EOF
 source "$GITDIR/modules/powerline/powerline/bindings/tmux/powerline.conf"
 EOF
 
@@ -101,12 +93,9 @@ source "$GITDIR/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 EOF
 
 
-if [ ! -d ~/.vim ]; then
-    mkdir -p $HOME/.vim
-fi
+mkdir -p ~/.vim
 
-if [ -d ~/.vim/skel ]; then
-    rm -fr ~/.vim/skel
-fi
+# remove ~/.vim/skel if exists
+rm -fr ~/.vim/skel
 
 ln -s $GITDIR/vim-skel ~/.vim/skel
