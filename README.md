@@ -6,7 +6,7 @@ dot_files
 
 ###螢幕截圖
 
-#### ZSH
+#### vim
 ![Imgur](http://i.imgur.com/0heyRVl.png)
 
 ###安裝
