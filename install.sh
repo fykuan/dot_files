@@ -66,7 +66,7 @@ rcup -v
 
 # General
 # oh-my-zsh
-if [ -e $HOME/.oh-my-zsh ] && mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh.bak
+rm -fr $HOME/.oh-my-zsh
 ln -s $GITDIR/modules/oh-my-zsh $HOME/.oh-my-zsh
 
 # zsh-autosuggestion
