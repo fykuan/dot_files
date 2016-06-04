@@ -40,6 +40,18 @@ if [ $(uname) == "Darwin" ]; then
         brew tap thoughtbot/formulae
         brew install rcm
     fi
+elif which apt-get; then
+    # Debian / Ubuntu
+    echo "Running installer on Debian/Ubuntu..."
+    # Install rcm
+    wget https://thoughtbot.github.io/rcm/debs/rcm_1.3.0-1_all.deb
+    sha=$(sha256sum rcm_1.3.0-1_all.deb | cut -f1 -d' ')
+    [ "$sha" = "2e95bbc23da4a0b995ec4757e0920197f4c92357214a65fedaf24274cda6806d" ] && sudo dpkg -i rcm_1.3.0-1_all.deb
+elif which pacman; then
+    # ArchLinux
+    sudo pacman -S rcm
+elif which pkg; then
+    sudo pkg install rcm
 fi
 
 # clone .dotfiles from github
