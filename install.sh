@@ -8,7 +8,7 @@ git submodule init && git submodule update --recursive
 if which git ; then
     echo "[1;33mgit is installed[m"
 else
-    echo "git is not installed"
+    echo "[1;31mgit is not installed[m"
     exit 0
 fi
 
@@ -16,41 +16,44 @@ fi
 if which pip ; then
     echo "[1;33mpip is installed[m"
 else
-    echo "pip is not installed"
+    echo "[1;31mpip is not installed[m"
 fi
 
 # check if sudo is installed
 if which sudo ; then
     echo "[1;33msudo is installed[m"
 else
-    echo "sudo is not installed"
+    echo "[1;31msudo is not installed[m"
 fi
 
 if [ $(uname) == "Darwin" ]; then
     # Mac OS
-    echo "Running installer on OSX..."
+    echo "[1;37mRunning installer on OSX...[m"
     # Install homwbrew if not exist
     if [ $(which brew) == 0 ]; then
         echo "=== Installing homebrew ==="
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
     # Install rcm if not exist
-    if [ $(which lsrc) == 0 ]; then
+    if ! which lsrc; then
         echo "=== Installing rcm ==="
         brew tap thoughtbot/formulae
         brew install rcm
     fi
 elif which apt-get; then
     # Debian / Ubuntu
-    echo "Running installer on Debian/Ubuntu..."
+    echo "[1;37mRunning installer on Debian/Ubuntu...[m"
     # Install rcm
     wget https://thoughtbot.github.io/rcm/debs/rcm_1.3.0-1_all.deb
     sha=$(sha256sum rcm_1.3.0-1_all.deb | cut -f1 -d' ')
     [ "$sha" = "2e95bbc23da4a0b995ec4757e0920197f4c92357214a65fedaf24274cda6806d" ] && sudo dpkg -i rcm_1.3.0-1_all.deb
 elif which pacman; then
     # ArchLinux
-    sudo pacman -S rcm
+    echo "[37mRunning installer on ArchLinux...[m"
+    cd /tmp && wget https://aur.archlinux.org/cgit/aur.git/snapshot/rcm.tar.gz && tar zxvf rcm.tar.gz && cd rcm && makepkg -s && sudo pacman -U rcm-1.3.0-1-any.pkg.tar.xz
 elif which pkg; then
+    # FreeBSD
+    echo "[37mRunning installer on FreeBSD...[m"
     sudo pkg install rcm
 fi
 
