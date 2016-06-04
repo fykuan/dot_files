@@ -76,13 +76,6 @@ ln -s $GITDIR/modules/zsh-autosuggestions $HOME/.zsh-autosuggestions
 # install powerline
 cd $GITDIR/modules/powerline && git checkout master && sudo python setup.py install
 
-#install spf13-vim
-curl http://j.mp/spf13-vim3 -L -o - | sh
-
-# zsh-autosuggestions
-rm -fr $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone git://github.com/tarruda/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-
 # 把 powerline 和 zsh-syntax-highlighting 載入 zshrc
 cat > $HOME/.tmux.conf.source << EOF
 source "$GITDIR/modules/powerline/powerline/bindings/tmux/powerline.conf"
@@ -92,6 +85,12 @@ cat > $HOME/.zshrc.source << EOF
 source "$GITDIR/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 EOF
 
+#install spf13-vim
+curl http://j.mp/spf13-vim3 -L -o - | sh
+
+# zsh-autosuggestions
+rm -fr $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone git://github.com/tarruda/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 mkdir -p ~/.vim
 
