@@ -98,3 +98,7 @@ mkdir -p ~/.vim
 rm -fr ~/.vim/skel
 
 ln -s $GITDIR/vim-skel ~/.vim/skel
+
+# reset git username and email
+git config --unset --global user.name
+git config --unset --global user.email
