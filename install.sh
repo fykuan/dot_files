@@ -73,13 +73,7 @@ ln -s $GITDIR/modules/oh-my-zsh $HOME/.oh-my-zsh
 rm -fr $HOME/.zsh-autosuggestions
 ln -s $GITDIR/modules/zsh-autosuggestions $HOME/.zsh-autosuggestions
 
-# install powerline
-cd $GITDIR/modules/powerline && git checkout master && sudo python setup.py install
-
-# 把 powerline 和 zsh-syntax-highlighting 載入 zshrc
-cat > $HOME/.tmux.conf.source << EOF
-source "$GITDIR/modules/powerline/powerline/bindings/tmux/powerline.conf"
-EOF
+# 把 zsh-syntax-highlighting 載入 zshrc
 
 cat > $HOME/.zshrc.source << EOF
 source "$GITDIR/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
