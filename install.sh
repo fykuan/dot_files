@@ -77,7 +77,6 @@ rm -fr $HOME/.zsh-autosuggestions
 ln -s $GITDIR/modules/zsh-autosuggestions $HOME/.zsh-autosuggestions
 
 # 把 zsh-syntax-highlighting 載入 zshrc
-
 cat > $HOME/.zshrc.source << EOF
 source "$GITDIR/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 EOF
@@ -88,6 +87,10 @@ curl http://j.mp/spf13-vim3 -L -o - | sh
 # zsh-autosuggestions
 rm -fr $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone git://github.com/tarruda/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+# zsh-completions
+rm -fr $HOME/.oh-my-zsh/custom/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 
 mkdir -p ~/.vim
 
