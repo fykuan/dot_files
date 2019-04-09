@@ -76,21 +76,20 @@ ln -s $GITDIR/modules/oh-my-zsh $HOME/.oh-my-zsh
 rm -fr $HOME/.zsh-autosuggestions
 ln -s $GITDIR/modules/zsh-autosuggestions $HOME/.zsh-autosuggestions
 
-# 把 zsh-syntax-highlighting 載入 zshrc
-cat > $HOME/.zshrc.source << EOF
-source "$GITDIR/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-EOF
-
 #install spf13-vim
 curl http://j.mp/spf13-vim3 -L -o - | sh
 
+# zsh-syntax-highlighting
+rm -fr $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
 # zsh-autosuggestions
-rm -fr $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone git://github.com/tarruda/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+rm -fr $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone git://github.com/tarruda/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 # zsh-completions
-rm -fr $HOME/.oh-my-zsh/custom/plugins/zsh-completions
-git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+rm -fr $ZSH_CUSTOM/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-completions $ZSH_CUSTOM/plugins/zsh-completions
 
 mkdir -p ~/.vim
 
