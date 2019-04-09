@@ -89,6 +89,8 @@ ln -s $GITDIR/modules/zsh-autosuggestions $HOME/.zsh-autosuggestions
 #install spf13-vim
 curl http://j.mp/spf13-vim3 -L -o - | sh
 
+ZSH_CUSTOM=~/.oh-my-zsh/custom/
+
 # zsh-syntax-highlighting
 rm -fr $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
