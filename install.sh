@@ -64,6 +64,16 @@ fi
 rm -fr ~/.dotfiles
 
 git clone https://github.com/fykuan/dotfiles ~/.dotfiles
+
+# Clone oh-my-tmux
+cd
+git clone git@github.com:fykuan/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
+
+# go back
+cd -
+
 # use rcm to install dot files
 rcup -v
 
