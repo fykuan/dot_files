@@ -65,12 +65,6 @@ rm -fr ~/.dotfiles
 
 git clone https://github.com/fykuan/dotfiles ~/.dotfiles
 
-# Clone oh-my-tmux
-cd
-git clone git@github.com:fykuan/.tmux.git
-ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
-
 # go back
 cd -
 
@@ -113,3 +107,41 @@ ln -s $GITDIR/vim-skel ~/.vim/skel
 # reset git username and email
 git config --unset --global user.name
 git config --unset --global user.email
+
+#
+# Clone oh-my-tmux
+#
+cd
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
+
+#
+# Tmux custom settings
+#
+cat >> ~/.tmux.conf.local <<EOF
+unbind u
+bind v split-window -h
+bind | split-window -h
+#
+## 水平分割視窗
+bind h split-window -v
+bind - split-window -v
+bind -r M-Up resize-pane -U 5
+bind -r M-Down resize-pane -D 5
+bind -r M-Left resize-pane -L 5
+bind -r M-Right resize-pane -R 5
+
+bind-key -n F1 select-window -t 1
+bind-key -n F2 select-window -t 2
+bind-key -n F3 select-window -t 3
+bind-key -n F4 select-window -t 4
+bind-key -n F5 select-window -t 5
+bind-key -n F6 select-window -t 6
+bind-key -n F7 select-window -t 7
+bind-key -n F8 select-window -t 8
+bind-key -n F9 select-window -t 9
+bind-key -n F10 select-window -t 10
+bind-key -n F11 select-window -t 11
+bind-key -n F12 select-window -t 12
+EOF
