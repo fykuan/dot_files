@@ -71,31 +71,12 @@ cd -
 # use rcm to install dot files
 rcup -v
 
-# General
-# oh-my-zsh
-rm -fr $HOME/.oh-my-zsh
-ln -s $GITDIR/modules/oh-my-zsh $HOME/.oh-my-zsh
-
-# zsh-autosuggestion
-rm -fr $HOME/.zsh-autosuggestions
-ln -s $GITDIR/modules/zsh-autosuggestions $HOME/.zsh-autosuggestions
+###########
+# General #
+###########
 
 #install spf13-vim
 curl http://j.mp/spf13-vim3 -L -o - | sh
-
-ZSH_CUSTOM=~/.oh-my-zsh/custom/
-
-# zsh-syntax-highlighting
-rm -fr $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-
-# zsh-autosuggestions
-rm -fr $ZSH_CUSTOM/plugins/zsh-autosuggestions
-git clone git://github.com/tarruda/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-
-# zsh-completions
-rm -fr $ZSH_CUSTOM/plugins/zsh-completions
-git clone https://github.com/zsh-users/zsh-completions $ZSH_CUSTOM/plugins/zsh-completions
 
 mkdir -p ~/.vim
 
@@ -145,3 +126,14 @@ bind-key -n F10 select-window -t 10
 bind-key -n F11 select-window -t 11
 bind-key -n F12 select-window -t 12
 EOF
+
+# Install zim
+curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+
+# Install powerlevel10k (https://github.com/romkatv/powerlevel10k/blob/master/README.md#zim)
+cat >> ~/.zimrc << EOF
+zmodule romkatv/powerlevel10k
+EOF
+
+echo "\n"
+echo "Please restart terminal manually and run 'zimfw install'"
