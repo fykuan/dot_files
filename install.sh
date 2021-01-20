@@ -131,3 +131,7 @@ bind-key -n F11 select-window -t 11
 bind-key -n F12 select-window -t 12
 EOF
 
+#
+# Set oh-my-zsh theme
+#
+sed 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dallas"/1' ~/.zshrc
