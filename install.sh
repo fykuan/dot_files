@@ -139,4 +139,6 @@ sed 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dallas"/1' ~/.zshrc
 #
 # Load custom zsh settings 
 #
+cat >> ~/.zshrc <<EOF
 source ~/.zshrc.local
+EOF
