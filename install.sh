@@ -90,6 +90,10 @@ git config --unset --global user.name
 git config --unset --global user.email
 
 #
+# Install oh-my-zsh
+#
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#
 # Clone oh-my-tmux
 #
 cd
@@ -127,13 +131,3 @@ bind-key -n F11 select-window -t 11
 bind-key -n F12 select-window -t 12
 EOF
 
-# Install zim
-curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-
-# Install powerlevel10k (https://github.com/romkatv/powerlevel10k/blob/master/README.md#zim)
-cat >> ~/.zimrc << EOF
-zmodule romkatv/powerlevel10k
-EOF
-
-echo "\n"
-echo "Please restart terminal manually and run 'zimfw install'"
