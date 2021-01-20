@@ -135,3 +135,8 @@ EOF
 # Set oh-my-zsh theme
 #
 sed 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dallas"/1' ~/.zshrc
+
+#
+# Load custom zsh settings 
+#
+source ~/.zshrc.local
