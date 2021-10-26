@@ -76,7 +76,7 @@ rcup -v
 ###########
 
 #install spf13-vim
-curl http://j.mp/spf13-vim3 -L -o - | sh
+#curl http://j.mp/spf13-vim3 -L -o - | sh
 
 mkdir -p ~/.vim
 
