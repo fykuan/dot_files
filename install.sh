@@ -74,10 +74,6 @@ rcup -v
 ###########
 # General #
 ###########
-
-#install spf13-vim
-curl http://j.mp/spf13-vim3 -L -o - | sh
-
 mkdir -p ~/.vim
 
 # remove ~/.vim/skel if exists
