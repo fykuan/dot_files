@@ -128,7 +128,7 @@ EOF
 #
 # Set oh-my-zsh theme
 #
-sed -i '.bak' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dallas"/1' ~/.zshrc
+sed -i '.bak' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dpoggy"/1' ~/.zshrc
 
 #
 # Load custom zsh settings
