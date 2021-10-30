@@ -74,12 +74,10 @@ rcup -v
 ###########
 # General #
 ###########
-mkdir -p ~/.vim
+mkdir -p ~/.vim/autoload
 
-# remove ~/.vim/skel if exists
-rm -fr ~/.vim/skel
-
-ln -s $GITDIR/vim-skel ~/.vim/skel
+# Install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # reset git username and email
 git config --unset --global user.name
@@ -133,7 +131,7 @@ EOF
 sed 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dallas"/1' ~/.zshrc
 
 #
-# Load custom zsh settings 
+# Load custom zsh settings
 #
 cat >> ~/.zshrc <<EOF
 source ~/.zshrc.local
