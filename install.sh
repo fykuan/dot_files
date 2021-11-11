@@ -133,7 +133,7 @@ EOF
 # Set oh-my-zsh theme
 #
 sed -i'.bak' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dpoggi"/1' ~/.zshrc
-sed -i'.bak' 's/plugins=(git)/plugins=(git zsh-autosuggestions history copydir autojump)/1' ~/.zshrc
+sed -i'.bak' 's/plugins=(git)/plugins=(git zsh-autosuggestions history copydir autojump fzf)/1' ~/.zshrc
 
 #
 # Load custom zsh settings
