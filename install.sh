@@ -142,6 +142,9 @@ EOF
 # Set oh-my-zsh theme
 #
 sed -i'.bak' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dpoggi"/1' ~/.zshrc
+#
+# Set zsh plugins
+#
 sed -i'.bak' 's/plugins=(git)/plugins=(git zsh-autosuggestions history copydir autojump fzf pyenv)/1' ~/.zshrc
 
 #
