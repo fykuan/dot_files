@@ -94,6 +94,11 @@ mkdir -p ~/.vim/autoload
 # Install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+#
+# Run PlugInstall
+#
+vim +PlugInstall +qall
+
 # reset git username and email
 git config --unset --global user.name
 git config --unset --global user.email
