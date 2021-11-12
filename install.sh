@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 
+#
+# check operation system
+#
+if [ $(uname) == "Darwin" ]; then
+    export CURRENT_OS='macos'
+elif which apt-get; then
+    export CURRENT_OS='debian'
+elif which pacman; then
+    export CURRENT_OS='arch'
+elif which pkg; then
+    export CURRENT_OS='freebsd'
+else
+    export CURRENT_OS='other'
+fi
+
 GITDIR=`pwd`
 
 git submodule init && git submodule update --recursive
