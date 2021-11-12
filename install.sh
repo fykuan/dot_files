@@ -27,16 +27,6 @@ else
     exit 0
 fi
 
-# check if pip is installed
-if which pip ; then
-    echo "[1;33mpip is installed[m"
-else
-    echo "[1;31mpip is not installed[m"
-    if which easy_install ; then
-        sudo easy_install pip
-    fi
-fi
-
 # check if sudo is installed
 if which sudo ; then
     echo "[1;33msudo is installed[m"
