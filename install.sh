@@ -44,7 +44,7 @@ else
     echo "[1;31msudo is not installed[m"
 fi
 
-if [ $(uname) == "Darwin" ]; then
+if [ ${CURRENT_OS} == "macos" ]; then
     # Mac OS
     echo "[1;37mRunning installer on OSX...[m"
     # Install homwbrew if not exist
@@ -58,18 +58,16 @@ if [ $(uname) == "Darwin" ]; then
         brew tap thoughtbot/formulae
         brew install rcm
     fi
-elif which apt-get; then
+elif [ ${CURRENT_OS} == "debian" ]; then
     # Debian / Ubuntu
     echo "[1;37mRunning installer on Debian/Ubuntu...[m"
     # Install rcm
-    wget https://thoughtbot.github.io/rcm/debs/rcm_1.3.0-1_all.deb
-    sha=$(sha256sum rcm_1.3.0-1_all.deb | cut -f1 -d' ')
-    [ "$sha" = "2e95bbc23da4a0b995ec4757e0920197f4c92357214a65fedaf24274cda6806d" ] && sudo dpkg -i rcm_1.3.0-1_all.deb
-elif which pacman; then
+    sudo apt install rcm -y
+elif [ ${CURRENT_OS} == "arch" ]; then
     # ArchLinux
     echo "[37mRunning installer on ArchLinux...[m"
     cd /tmp && wget https://aur.archlinux.org/cgit/aur.git/snapshot/rcm.tar.gz && tar zxvf rcm.tar.gz && cd rcm && makepkg -s && sudo pacman -U rcm-1.3.0-1-any.pkg.tar.xz
-elif which pkg; then
+elif [ ${CURRENT_OS} == "freebsd" ]; then
     # FreeBSD
     echo "[37mRunning installer on FreeBSD...[m"
     sudo pkg install rcm
