@@ -32,6 +32,7 @@ if which sudo ; then
     echo "[1;33msudo is installed[m"
 else
     echo "[1;31msudo is not installed[m"
+    exit 0
 fi
 
 if [ ${CURRENT_OS} == "macos" ]; then
