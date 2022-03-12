@@ -153,3 +153,12 @@ sed -i'.bak' 's/plugins=(git)/plugins=(git zsh-autosuggestions history copypath 
 cat >> ~/.zshrc <<EOF
 source ~/.zshrc.local
 EOF
+
+#
+# Link Neovim config
+#
+mkdir -p ~/.config/nvim && ln -s ~/.vimrc ~/.config/nvim/init.vim
+# Install vim-plug for Neovim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
