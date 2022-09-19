@@ -48,7 +48,7 @@ if [ ${CURRENT_OS} == "macos" ]; then
         echo "=== Installing rcm ==="
         brew tap thoughtbot/formulae
         brew install rcm
-        snap install starship
+        brew install starship
     fi
 elif [ ${CURRENT_OS} == "debian" ]; then
     # Debian / Ubuntu
@@ -56,7 +56,7 @@ elif [ ${CURRENT_OS} == "debian" ]; then
     # Install rcm
     sudo apt install rcm -y
     # Install starship
-    sudo apt install starship -y
+    sudo snap install starship
 elif [ ${CURRENT_OS} == "arch" ]; then
     # ArchLinux
     echo "[37mRunning installer on ArchLinux...[m"
