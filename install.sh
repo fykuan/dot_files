@@ -155,6 +155,7 @@ sed -i'.bak' 's/plugins=(git)/plugins=(git zsh-autosuggestions history copypath 
 #
 cat >> ~/.zshrc <<EOF
 source ~/.zshrc.local
+eval "$(starship init zsh)"
 EOF
 
 #
