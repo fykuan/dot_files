@@ -48,12 +48,15 @@ if [ ${CURRENT_OS} == "macos" ]; then
         echo "=== Installing rcm ==="
         brew tap thoughtbot/formulae
         brew install rcm
+        brew install starship
     fi
 elif [ ${CURRENT_OS} == "debian" ]; then
     # Debian / Ubuntu
     echo "[1;37mRunning installer on Debian/Ubuntu...[m"
     # Install rcm
     sudo apt install rcm -y
+    # Install starship
+    sudo apt install starship -y
 elif [ ${CURRENT_OS} == "arch" ]; then
     # ArchLinux
     echo "[37mRunning installer on ArchLinux...[m"
@@ -162,3 +165,7 @@ mkdir -p ~/.config/nvim && ln -s ~/.vimrc ~/.config/nvim/init.vim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+#
+# Link starship config
+mkdir -p ~/.config/
+ln -s ~/.dotfiles/starship.toml ~/.config/starship.toml
