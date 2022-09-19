@@ -2,7 +2,7 @@
 dot_files
 =========
 
-我的 zsh + vim + tmux 等等等的環境設定
+我的 zsh + nvim + tmux 等等等的環境設定
 
 包含：
 
@@ -19,7 +19,7 @@ dot_files
 
 ### 安裝
 #### Prerequirement
-* vim (with Python support)
+* nvim
 * zsh
 * sudo、python-pip、git
 
