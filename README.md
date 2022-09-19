@@ -2,18 +2,25 @@
 dot_files
 =========
 
-我的zsh + vim + tmux 等等等的環境設定
+我的 zsh + vim + tmux 等等等的環境設定
 
-###螢幕截圖
+包含：
 
+* oh-my-zsh
+* starship
+* vim plugins
+* tmux config
+* zsh theme
+
+### 螢幕截圖
+![term](images/term.png)
 #### vim
-![Imgur](http://i.imgur.com/0heyRVl.png)
+![nvim](images/nvim.png)
 
-###安裝
+### 安裝
 #### Prerequirement
 * vim (with Python support)
 * zsh
-* patch過的字型（沒patch過的沒有powerline使用的特殊符號）
 * sudo、python-pip、git
 
 #### 流程
