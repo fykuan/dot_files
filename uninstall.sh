@@ -17,3 +17,4 @@ rm -fr \
 
 rm ~/.tmux.conf.local
 rm ~/.zimrc
+rm ~/.config/starship.toml
