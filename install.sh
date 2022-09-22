@@ -148,7 +148,7 @@ sed -i'.bak' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dpoggi"/1' ~/.zshrc
 #
 # Set zsh plugins
 #
-sed -i'.bak' 's/plugins=(git)/plugins=(git zsh-autosuggestions history copypath autojump fzf pyenv)/1' ~/.zshrc
+sed -i'.bak' 's/plugins=(git)/plugins=(git zsh-autosuggestions history copypath autojump pyenv)/1' ~/.zshrc
 
 #
 # Load custom zsh settings
