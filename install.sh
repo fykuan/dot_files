@@ -48,6 +48,9 @@ if [ ${CURRENT_OS} == "macos" ]; then
         echo "=== Installing rcm ==="
         brew tap thoughtbot/formulae
         brew install rcm
+    fi
+    # Install starship if not exist
+    if ! which starship; then
         brew install starship
     fi
 elif [ ${CURRENT_OS} == "debian" ]; then
