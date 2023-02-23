@@ -53,6 +53,10 @@ if [ ${CURRENT_OS} == "macos" ]; then
     if ! which starship; then
         brew install starship
     fi
+    # Install neovim if not exist
+    if ! which nvim; then
+        brew install neovim
+    fi
 elif [ ${CURRENT_OS} == "debian" ]; then
     # Debian / Ubuntu
     echo "[1;37mRunning installer on Debian/Ubuntu...[m"
