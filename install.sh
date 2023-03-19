@@ -146,7 +146,6 @@ bind-key -n F9 select-window -t 9
 bind-key -n F10 select-window -t 10
 bind-key -n F11 select-window -t 11
 bind-key -n F12 select-window -t 12
-set -g mouse on
 EOF
 
 #
