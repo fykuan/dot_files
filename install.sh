@@ -118,6 +118,10 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
 
+# Install tpm
+mkdir -p ~/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 #
 # Tmux custom settings
 #
@@ -146,6 +150,14 @@ bind-key -n F9 select-window -t 9
 bind-key -n F10 select-window -t 10
 bind-key -n F11 select-window -t 11
 bind-key -n F12 select-window -t 12
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'erikw/tmux-powerline.git'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
 EOF
 
 #
@@ -171,7 +183,7 @@ EOF
 mkdir -p ~/.config/nvim && ln -s ~/.vimrc ~/.config/nvim/init.vim
 # Install vim-plug for Neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 #
 # Link starship config
