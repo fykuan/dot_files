@@ -7,7 +7,6 @@ rm -fr \
     ~/.gitconfig \
     ~/.gitconfig* \
     ~/.oh-my-zsh* \
-    ~/.spf13-vim-3 \
     ~/.tmux \
     ~/.tmux* \
     ~/.vim* \
@@ -18,3 +17,4 @@ rm -fr \
 rm ~/.tmux.conf.local
 rm ~/.zimrc
 rm ~/.config/starship.toml
+rm ~/.zprofile
