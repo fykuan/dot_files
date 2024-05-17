@@ -1,36 +1,41 @@
 #!/usr/bin/env bash
 #
-# Install homebrew if not already installed
-#
+#############################################
+# Install homebrew if not already installed #
+#############################################
 if ! command -v brew &> /dev/null
 then
     /bin/bash -c "NONINTERACTIVE=1; $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
-#
-# Install git if not already installed
-#
+
+########################################
+# Install git if not already installed #
+########################################
 if ! command -v git &> /dev/null
 then
     /opt/homebrew/bin/brew install git
 fi
-#
-# Install rcm if not already installed
-#
+
+########################################
+# Install rcm if not already installed #
+########################################
 if ! command -v rcup &> /dev/null
 then
     /opt/homebrew/bin/brew tap thoughtbot/formulae
     /opt/homebrew/bin/brew install rcm
 fi
-#
-# clone .dotfiles from github
-#
+
+###############################
+# clone .dotfiles from github #
+###############################
 rm -fr ~/.dotfiles
 git clone https://github.com/fykuan/dotfiles ~/.dotfiles
 rcup -v
-#
-# Install tmux if not already installed
-#
+
+#########################################
+# Install tmux if not already installed #
+#########################################
 if ! command -v tmux &> /dev/null
 then
     /opt/homebrew/bin/brew install tmux
@@ -41,9 +46,10 @@ fi
 mkdir -p ~/.vim/autoload
 # Install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-#
-# Run PlugInstall
-#
+
+###################
+# Run PlugInstall #
+###################
 vim +PlugInstall +qall
 #
 # reset git username and email
@@ -51,13 +57,16 @@ vim +PlugInstall +qall
 git config --unset --global user.name
 git config --unset --global user.email
 
-# Install tpm
+###############
+# Install tpm #
+###############
+rm -fr ~/.tmux/plugins/tpm
 mkdir -p ~/.tmux/plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-#
-# Tmux custom settings
-#
+########################
+# Tmux custom settings #
+########################
 cat >> ~/.tmux.conf.local <<EOF
 unbind u
 bind v split-window -h
@@ -92,37 +101,55 @@ set -g @plugin 'erikw/tmux-powerline.git'
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
 EOF
-#
-# Create .zimrc
-#
-cat >> ~/.zimrc <<EOF
-zmodule joshskidmore/zsh-fzf-history-search
-zmodule romkatv/powerlevel10k --use degit
-EOF
-#
-# Install zim
-#
-curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-#
-# Install Starship if not already installed
-#
+##############################################
+# Install oh-my-zsh if not already installed #
+##############################################
+if [ ! -d ~/.oh-my-zsh ]
+then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+#############################################
+# Install Starship if not already installed #
+#############################################
 if ! command -v starship &> /dev/null
 then
     /opt/homebrew/bin/brew install starship
 fi
-#
-# Config Starship
-#
-cat >> ~/.zshrc <<EOF
-eval "\$(starship init zsh)"
-EOF
-#
-# Install autojump if not already installed
-#
+
+#############################################
+# Install autojump if not already installed #
+#############################################
 if ! command -v autojump &> /dev/null
 then
     /opt/homebrew/bin/brew install autojump
 fi
 cat >> ~/.zshrc <<EOF
 [[ -s \$(brew --prefix)/etc/profile.d/autojump.sh ]] && . \$(brew --prefix)/etc/profile.d/autojump.sh
+EOF
+
+####################
+# Source .zprofile #
+####################
+cat >> ~/.zshrc <<EOF
+[[ -s ~/.zprofile ]] && source ~/.zprofile
+EOF
+
+################
+# Update zshrc #
+################
+sed -i'.bak' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dpoggi"/1' ~/.zshrc
+sed -i'.bak' 's/plugins=(git)/plugins=(git zsh-autosuggestions history copypath autojump pyenv fzf)/1' ~/.zshrc
+
+###############################
+# Install zsh-autosuggestions #
+###############################
+rm -fr ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+###################
+# Config Starship #
+###################
+cat >> ~/.zshrc <<EOF
+eval "\$(starship init zsh)"
 EOF
