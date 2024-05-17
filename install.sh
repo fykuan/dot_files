@@ -96,12 +96,8 @@ EOF
 # Create .zimrc
 #
 cat >> ~/.zimrc <<EOF
-zmodule asciiship
-#zmodule zsh-users/zsh-completions --fpath src
-#zmodule completion
-zmodule zsh-users/zsh-syntax-highlighting
-zmodule zsh-users/zsh-autosuggestions
 zmodule joshskidmore/zsh-fzf-history-search
+zmodule romkatv/powerlevel10k --use degit
 EOF
 #
 # Install zim
