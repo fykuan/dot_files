@@ -1,115 +1,55 @@
 #!/usr/bin/env bash
-
 #
-# check operation system
+# Install homebrew if not already installed
 #
-if [ $(uname) == "Darwin" ]; then
-    export CURRENT_OS='macos'
-elif which apt-get; then
-    export CURRENT_OS='debian'
-elif which pacman; then
-    export CURRENT_OS='arch'
-elif which pkg; then
-    export CURRENT_OS='freebsd'
-else
-    export CURRENT_OS='other'
+if ! command -v brew &> /dev/null
+then
+    /bin/bash -c "NONINTERACTIVE=1; $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
-
-GITDIR=`pwd`
-
-git submodule init && git submodule update --recursive
-
-# check if git is installed
-if which git ; then
-    echo "[1;33mgit is installed[m"
-else
-    echo "[1;31mgit is not installed[m"
-    exit 0
+eval "$(/opt/homebrew/bin/brew shellenv)"
+#
+# Install git if not already installed
+#
+if ! command -v git &> /dev/null
+then
+    /opt/homebrew/bin/brew install git
 fi
-
-# check if sudo is installed
-if which sudo ; then
-    echo "[1;33msudo is installed[m"
-else
-    echo "[1;31msudo is not installed[m"
-    exit 0
+#
+# Install rcm if not already installed
+#
+if ! command -v rcup &> /dev/null
+then
+    /opt/homebrew/bin/brew tap thoughtbot/formulae
+    /opt/homebrew/bin/brew install rcm
 fi
-
-if [ ${CURRENT_OS} == "macos" ]; then
-    # Mac OS
-    echo "[1;37mRunning installer on OSX...[m"
-    # Install homwbrew if not exist
-    if [ $(which brew) == 0 ]; then
-        echo "=== Installing homebrew ==="
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
-    # Install rcm if not exist
-    if ! which lsrc; then
-        echo "=== Installing rcm ==="
-        brew tap thoughtbot/formulae
-        brew install rcm
-    fi
-    # Install starship if not exist
-    if ! which starship; then
-        brew install starship
-    fi
-    # Install neovim if not exist
-    if ! which nvim; then
-        brew install neovim
-    fi
-elif [ ${CURRENT_OS} == "debian" ]; then
-    # Debian / Ubuntu
-    echo "[1;37mRunning installer on Debian/Ubuntu...[m"
-    # Install rcm
-    sudo apt install rcm -y
-    # Install starship
-    sudo snap install starship
-elif [ ${CURRENT_OS} == "arch" ]; then
-    # ArchLinux
-    echo "[37mRunning installer on ArchLinux...[m"
-    cd /tmp && wget https://aur.archlinux.org/cgit/aur.git/snapshot/rcm.tar.gz && tar zxvf rcm.tar.gz && cd rcm && makepkg -s && sudo pacman -U rcm-1.3.0-1-any.pkg.tar.xz
-elif [ ${CURRENT_OS} == "freebsd" ]; then
-    # FreeBSD
-    echo "[37mRunning installer on FreeBSD...[m"
-    sudo pkg install rcm
-fi
-
+#
 # clone .dotfiles from github
+#
 rm -fr ~/.dotfiles
-
 git clone https://github.com/fykuan/dotfiles ~/.dotfiles
-
-# go back
-cd -
-
-# use rcm to install dot files
 rcup -v
-
+#
+# Install tmux if not already installed
+#
+if ! command -v tmux &> /dev/null
+then
+    /opt/homebrew/bin/brew install tmux
+fi
 ###########
 # General #
 ###########
 mkdir -p ~/.vim/autoload
-
 # Install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 #
 # Run PlugInstall
 #
 vim +PlugInstall +qall
-
+#
 # reset git username and email
+#
 git config --unset --global user.name
 git config --unset --global user.email
-
-#
-# Install oh-my-zsh
-#
-RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) "
-#
-# Install zsh-autosuggestions
-#
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Install tpm
 mkdir -p ~/.tmux/plugins
@@ -152,33 +92,55 @@ set -g @plugin 'erikw/tmux-powerline.git'
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
 EOF
-
 #
-# Set oh-my-zsh theme
+# Create .zimrc
 #
-sed -i'.bak' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dpoggi"/1' ~/.zshrc
+cat >> ~/.zimrc <<EOF
+zmodule asciiship
+#zmodule zsh-users/zsh-completions --fpath src
+#zmodule completion
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-autosuggestions
+zmodule joshskidmore/zsh-fzf-history-search
+EOF
 #
-# Set zsh plugins
+# Install zim
 #
-sed -i'.bak' 's/plugins=(git)/plugins=(git zsh-autosuggestions history copypath autojump pyenv fzf)/1' ~/.zshrc
-
+curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 #
-# Load custom zsh settings
+# Install Starship if not already installed
+#
+if ! command -v starship &> /dev/null
+then
+    /opt/homebrew/bin/brew install starship
+fi
+#
+# Config Starship
 #
 cat >> ~/.zshrc <<EOF
-source ~/.zshrc.local
-eval "$(starship init zsh)"
+eval "\$(starship init zsh)"
 EOF
-
 #
-# Link Neovim config
+# Install autojump if not already installed
 #
-mkdir -p ~/.config/nvim && ln -s ~/.vimrc ~/.config/nvim/init.vim
-# Install vim-plug for Neovim
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
+if ! command -v autojump &> /dev/null
+then
+    /opt/homebrew/bin/brew install autojump
+fi
+cat >> ~/.zshrc <<EOF
+[[ -s \$(brew --prefix)/etc/profile.d/autojump.sh ]] && . \$(brew --prefix)/etc/profile.d/autojump.sh
+EOF
 #
-# Link starship config
-mkdir -p ~/.config/
-ln -s ~/.dotfiles/starship.toml ~/.config/starship.toml
+# Set aliases
+#
+# alias ls to eza if eza is installed
+if command -v eza &> /dev/null
+then
+    cat >> ~/.zshrc <<EOF
+alias ls='eza'
+EOF
+fi
+#
+# Source .zshrc at last
+#
+source ~/.zshrc
