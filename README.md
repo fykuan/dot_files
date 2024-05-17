@@ -6,16 +6,10 @@ dot_files
 
 包含：
 
-* oh-my-zsh
 * starship
 * vim plugins
-* tmux config
-* zsh theme
-
-### 螢幕截圖
-![term](images/term.png)
-#### vim
-![nvim](images/nvim.png)
+* tpm (Tmux Plugin Manager)
+* zim
 
 ### 安裝
 #### Prerequirement
@@ -28,4 +22,4 @@ dot_files
 
    	git clone git@github.com:fykuan/dot_files.git
 
-2. 執行install.sh，會把該拉回來的都拉回來
+2. 執行`install.sh`，會把該拉回來的都拉回來
