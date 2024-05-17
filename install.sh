@@ -130,17 +130,3 @@ fi
 cat >> ~/.zshrc <<EOF
 [[ -s \$(brew --prefix)/etc/profile.d/autojump.sh ]] && . \$(brew --prefix)/etc/profile.d/autojump.sh
 EOF
-#
-# Set aliases
-#
-# alias ls to eza if eza is installed
-if command -v eza &> /dev/null
-then
-    cat >> ~/.zshrc <<EOF
-alias ls='eza'
-EOF
-fi
-#
-# Source .zshrc at last
-#
-source ~/.zshrc
