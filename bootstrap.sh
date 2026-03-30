@@ -46,11 +46,7 @@ echo ""
 echo "📦 Installing Homebrew packages..."
 ./scripts/install-brew-packages.sh
 
-echo ""
-echo "🐚 Setting up oh-my-zsh..."
-./scripts/setup-oh-my-zsh.sh
-
-# Stow dotfiles
+# Stow dotfiles FIRST (before oh-my-zsh installation)
 echo ""
 echo "🔗 Creating symlinks with GNU Stow..."
 
@@ -70,6 +66,11 @@ done
 
 echo ""
 echo "✓ Symlinks created successfully"
+
+# Install oh-my-zsh AFTER stowing .zshrc
+echo ""
+echo "🐚 Setting up oh-my-zsh..."
+./scripts/setup-oh-my-zsh.sh
 
 # Install Vim plugins
 echo ""
