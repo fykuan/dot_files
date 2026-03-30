@@ -35,8 +35,36 @@ fi
 
 # Install essential tools
 echo ""
-echo "🔧 Installing essential tools (git, stow)..."
-brew install git stow
+echo "🔧 Installing essential tools..."
+
+# Check and install git if needed
+if ! command -v git &> /dev/null; then
+    echo "  Installing git..."
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        echo "  Note: Consider installing git via system package manager (apt/yum) instead"
+        echo "  Example: sudo apt-get install git"
+        read -p "  Install git via Homebrew? [y/N] " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            brew install git
+        else
+            echo "  Skipping git installation. Please install git manually."
+            exit 1
+        fi
+    else
+        brew install git
+    fi
+else
+    echo "  ✓ git already installed"
+fi
+
+# Install stow
+if ! brew list stow &> /dev/null 2>&1; then
+    echo "  Installing stow..."
+    brew install stow
+else
+    echo "  ✓ stow already installed"
+fi
 
 # Clone dotfiles if running remotely
 if [[ ! -d "$DOTFILES_DIR" ]]; then
