@@ -33,7 +33,7 @@ cd ~/.dotfiles
 
 The bootstrap script will:
 1. Install Homebrew (if needed)
-2. Install required packages (git, stow, tmux, starship, autojump)
+2. Install required packages (git, stow, tmux, starship, zoxide)
 3. Setup oh-my-zsh and plugins
 4. Create symlinks using GNU Stow
 5. Install vim and tmux plugins
@@ -173,7 +173,7 @@ In tmux, press `prefix + I` to install new plugins.
 - stow (dotfile manager)
 - tmux (terminal multiplexer)
 - starship (shell prompt)
-- autojump (directory navigation)
+- zoxide (directory navigation)
 
 ### Zsh Plugins (oh-my-zsh)
 - git
@@ -181,7 +181,7 @@ In tmux, press `prefix + I` to install new plugins.
 - zsh-autocomplete
 - history
 - copypath
-- autojump
+- zoxide
 - pyenv
 - fzf
 

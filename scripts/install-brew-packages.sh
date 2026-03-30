@@ -4,7 +4,7 @@ set -e
 packages=(
     tmux
     starship
-    autojump
+    zoxide
     stow
 )
 
