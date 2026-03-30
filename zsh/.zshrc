@@ -1,10 +1,17 @@
 # Oh-My-Zsh configuration
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="dpoggi"
-plugins=(git zsh-autosuggestions history copypath autojump pyenv fzf zsh-autocomplete)
+plugins=(git zsh-autosuggestions history copypath autojump pyenv zsh-autocomplete)
 
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# FZF key bindings and completion (load AFTER zsh-autocomplete to avoid conflicts)
+if command -v fzf &> /dev/null; then
+    eval "$(fzf --zsh)"
+    # Ensure Ctrl-R is bound to fzf history search
+    bindkey '^R' fzf-history-widget
+fi
 
 # Load custom configurations
 if [ -d "$HOME/.config/zsh" ]; then
