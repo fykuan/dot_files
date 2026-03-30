@@ -4,7 +4,22 @@ set -e
 # Install oh-my-zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     echo "Installing oh-my-zsh..."
+
+    # Backup our custom .zshrc if it's a symlink
+    if [[ -L "$HOME/.zshrc" ]]; then
+        ZSHRC_TARGET=$(readlink "$HOME/.zshrc")
+        echo "  Backing up custom .zshrc symlink..."
+    fi
+
+    # Install oh-my-zsh (this will overwrite .zshrc)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+    # Restore our custom .zshrc symlink
+    if [[ -n "$ZSHRC_TARGET" ]]; then
+        echo "  Restoring custom .zshrc..."
+        rm -f "$HOME/.zshrc"
+        ln -s "$ZSHRC_TARGET" "$HOME/.zshrc"
+    fi
 else
     echo "oh-my-zsh already installed ✓"
 fi
