@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 .PHONY: help install uninstall restow
 
 help:
