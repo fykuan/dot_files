@@ -1,3 +1,17 @@
-vim/bundle/powerline
-vim/bundle/tabular
-vim/bundle/vim-colors-solarized
+# Editor files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Vim bundles and plugins
+vim/bundle/
+.vim/bundle/
+.vim/plugged/
+
+# Claude Code
+.claude
+
+# Old installation scripts (backup)
+install.sh.old
+uninstall.sh.old

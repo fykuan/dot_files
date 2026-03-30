@@ -1,0 +1,3 @@
+
+# 把 powerline 和 zsh-syntax-highlighting 載入 zshrc
+#source "/Users/allenkuan/github/dot_files/modules/powerline/powerline/bindings/tmux/powerline.conf"
