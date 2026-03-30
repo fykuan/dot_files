@@ -86,23 +86,25 @@ GNU Stow creates symlinks from this repository to your home directory:
 cd ~/.dotfiles
 
 # Stow individual package
-stow git              # Creates ~/.gitconfig symlink
+stow -t ~ git         # Creates ~/.gitconfig symlink
 
 # Stow multiple packages
-stow vim tmux zsh
+stow -t ~ vim tmux zsh
 
 # Stow all packages
-stow */
+for pkg in */; do stow -t ~ "$pkg"; done
 
 # Remove symlinks (unstow)
-stow -D vim
+stow -t ~ -D vim
 
 # Restow (useful after editing)
-stow -R vim
+stow -t ~ -R vim
 
 # Dry run (see what would happen)
-stow -n vim
+stow -t ~ -n vim
 ```
+
+**Note:** The `-t ~` flag specifies the target directory (home directory). This is necessary when the dotfiles repo is not directly in `~`.
 
 ### Using the Makefile
 

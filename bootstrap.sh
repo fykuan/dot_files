@@ -65,7 +65,7 @@ fi
 
 for package in $PACKAGES; do
     echo "  Stowing $package..."
-    stow -v "$package" 2>&1 | grep -v "BUG in find_stowed_path" || true
+    stow -t ~ -v "$package" 2>&1 | grep -v "BUG in find_stowed_path" || true
 done
 
 echo ""
