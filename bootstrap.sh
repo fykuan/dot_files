@@ -9,17 +9,29 @@ echo "║     Dotfiles Bootstrap Installer       ║"
 echo "╚════════════════════════════════════════╝"
 echo ""
 
+# Detect Homebrew installation path
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    BREW_PREFIX="/opt/homebrew"
+else
+    BREW_PREFIX="/home/linuxbrew/.linuxbrew"
+fi
+
 # Install Homebrew if not already installed
 if ! command -v brew &> /dev/null; then
     echo "📦 Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    eval "$($BREW_PREFIX/bin/brew shellenv)"
 else
     echo "✓ Homebrew already installed"
 fi
 
 # Ensure brew is in PATH
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ -x "$BREW_PREFIX/bin/brew" ]]; then
+    eval "$($BREW_PREFIX/bin/brew shellenv)"
+else
+    echo "Warning: Homebrew not found at $BREW_PREFIX"
+    echo "Attempting to find brew in PATH..."
+fi
 
 # Install essential tools
 echo ""
