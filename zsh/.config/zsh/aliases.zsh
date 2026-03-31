@@ -15,6 +15,7 @@ alias tf="terraform"
 alias pbc="pbcopy"
 alias pbp="pbpaste"
 alias grep="rg"
+alias kc="kubectl"
 
 # Fun aliases
 alias qotd="curl -s http://wowquote.tw/quote/random\?json\=1 | jq '.celebrity.name + \"：\" + .quote[0]' | cowsay -f www -d -n"
